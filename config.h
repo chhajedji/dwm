@@ -2,6 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -85,6 +86,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_q,		killclient,	{0} },
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
+        { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
 	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,	XK_m,		spawn,  	SHCMD("dmenu_input.sh -d") },
 	{ MODKEY,		XK_space,	setlayout,	{0} },
@@ -100,6 +102,8 @@ static Key keys[] = {
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
 	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
 	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("firefox -private-window") },
+        { MODKEY,		XK_z,		setgaps,	{.i = +1 } },
+        { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
 	{CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	{CONTROLKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
 	{CONTROLKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
