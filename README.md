@@ -1,4 +1,4 @@
-Built from dwm version 6.2
+Continued from dwm version 6.2
 
 
 
@@ -50,3 +50,11 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+
+Patches
+-------
+
+- [fullgaps](https://dwm.suckless.org/patches/fullgaps/) - For showing gaps in dwm 6.2.
+- [autostart](https://dwm.suckless.org/patches/autostart/) - Autostart applications after startup.
+- [systray](https://dwm.suckless.org/patches/autostart/) - Showing system tray to hold icons for applications like nm-applet.
