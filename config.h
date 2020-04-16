@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "7", "8", "9", "10" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -67,8 +67,8 @@ static const char *termcmd[]  = { "urxvt", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,			XK_p,		spawn,			SHCMD("i3-dmenu-desktop --dmenu='dmenu -p \"Run application: \" -b -i -fn \"Inconsolata 12\"'") },
-	{ MODKEY|ShiftMask,	XK_p,		spawn,		 {.v = dmenucmd } },
+	{ MODKEY,		XK_p,		spawn,		SHCMD("i3-dmenu-desktop --dmenu='dmenu -p \"Run application: \" -i -fn \"Inconsolata 12\"'") },
+	{ MODKEY|ShiftMask,	XK_p,		spawn,		{.v = dmenucmd } },
 	{ MODKEY,		XK_b,		togglebar,	{0} },
 	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
 	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
@@ -88,16 +88,16 @@ static Key keys[] = {
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
         { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
 	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,	XK_m,		spawn,  	SHCMD("dmenu_input.sh -d") },
+	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
 	{ MODKEY,		XK_space,	setlayout,	{0} },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
-	{ MODKEY,		XK_0,		view,		{.ui = ~0 } },
-	{ MODKEY|ShiftMask,	XK_0,		tag,		{.ui = ~0 } },
+	{ MODKEY,		XK_6,		view,		{.ui = ~0 } },
+	{ MODKEY|ShiftMask,	XK_6,		tag,		{.ui = ~0 } },
 	{ MODKEY,		XK_comma,	focusmon,	{.i = -1 } },
 	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_comma,	tagmon,		{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
-	{ MODKEY|ShiftMask,	XK_n,		spawn,		SHCMD("dmenu_input.sh -m") },
+	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
 	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
 	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
@@ -113,10 +113,10 @@ static Key keys[] = {
 	TAGKEYS(		XK_3,		2)
 	TAGKEYS(		XK_4,		3)
 	TAGKEYS(		XK_5,		4)
-	TAGKEYS(		XK_6,		5)
-	TAGKEYS(		XK_7,		6)
-	TAGKEYS(		XK_8,		7)
-	TAGKEYS(		XK_9,		8)
+	TAGKEYS(		XK_7,		5)
+	TAGKEYS(		XK_8,		6)
+	TAGKEYS(		XK_9,		7)
+	TAGKEYS(		XK_0,		8)
 };
 
 /* button definitions */
