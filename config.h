@@ -10,8 +10,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static const char dmenufont[]       = "Inconsolata:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "dolphin",  NULL,       NULL,       0,            1,           0 },
 	/*	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
 };
 
@@ -67,27 +68,29 @@ static const char *termcmd[]  = { "urxvt", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,		XK_p,		spawn,		SHCMD("i3-dmenu-desktop --dmenu='dmenu -p \"Run application: \" -i -fn \"Inconsolata 12\"'") },
-	{ MODKEY|ShiftMask,	XK_p,		spawn,		{.v = dmenucmd } },
-	{ MODKEY,		XK_b,		togglebar,	{0} },
+	{ MODKEY,       	XK_p,		spawn,		{.v = dmenucmd } },
+        // { MODKEY|ShiftMask,	XK_p,		spawn,		SHCMD("") },
+	{ MODKEY,		XK_Escape,	togglebar,	{0} },
+	{ MODKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
 	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
 	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
 	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
-	{ MODKEY|ShiftMask,	XK_n,		spawn,		SHCMD("dmenu_input.sh -m") },
 	{ MODKEY,		XK_a,		spawn,		SHCMD("dmenu_input.sh -g") },
 	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("new_wall.sh") },
+	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
 	{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
 	{ MODKEY,		XK_Return,	zoom,		{0} },
 	{ MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") },
-	{ MODKEY,		XK_Tab,		view,		{0} },
+	{ MODKEY,		XK_backslash,	view,		{0} },
 	{ MODKEY,		XK_q,		killclient,	{0} },
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
         { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
 	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
 	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
 	{ MODKEY,		XK_space,	setlayout,	{0} },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
@@ -97,17 +100,14 @@ static Key keys[] = {
 	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_comma,	tagmon,		{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
-	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
 	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
 	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
 	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("firefox -private-window") },
         { MODKEY,		XK_z,		setgaps,	{.i = +1 } },
         { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
-	{CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
-	{CONTROLKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
-	{CONTROLKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
-	{CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
+	{ CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
+	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
 	TAGKEYS(		XK_1,		0)
 	TAGKEYS(		XK_2,		1)
 	TAGKEYS(		XK_3,		2)
