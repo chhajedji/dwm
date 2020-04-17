@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
@@ -108,6 +110,15 @@ static Key keys[] = {
         { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
 	{ CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
+	{ 0,		XF86XK_AudioRaiseVolume,spawn,		SHCMD("volume_change.sh -i") },
+	{ 0,		XF86XK_AudioLowerVolume,spawn,		SHCMD("volume_change.sh -d") },
+	{ 0,		    XF86XK_AudioMute,   spawn,		SHCMD("volume_change.sh -t") },
+	{ 0,		    XF86XK_AudioMicMute,spawn,		SHCMD("volume_change.sh -mm") },
+	{ 0,	      XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightness_change.sh -dec") },
+	{ 0,		XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightness_change.sh -inc") },
+	{ 0,			XK_Print,	spawn,		SHCMD("screenshot.sh -w") },    /* Current window. */
+	{ MODKEY,		XK_Print,	spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
+	{ MODKEY|ShiftMask,	XK_Print,	spawn,		SHCMD("screenshot.sh") },       /* Fullscreen */
 	TAGKEYS(		XK_1,		0)
 	TAGKEYS(		XK_2,		1)
 	TAGKEYS(		XK_3,		2)
