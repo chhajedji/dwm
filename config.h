@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "7", "8", "9", "10" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -90,14 +90,14 @@ static Key keys[] = {
 	{ MODKEY,		XK_q,		killclient,	{0} },
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
-        { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
+        // { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
 	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
 	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
 	{ MODKEY,		XK_space,	setlayout,	{0} },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
-	{ MODKEY,		XK_6,		view,		{.ui = ~0 } },
-	{ MODKEY|ShiftMask,	XK_6,		tag,		{.ui = ~0 } },
+	{ MODKEY,		XK_BackSpace,	view,		{.ui = ~0 } },
+	{ MODKEY|ShiftMask,	XK_BackSpace,	tag,		{.ui = ~0 } },
 	{ MODKEY,		XK_comma,	focusmon,	{.i = -1 } },
 	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_comma,	tagmon,		{.i = -1 } },
@@ -108,6 +108,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("firefox -private-window") },
         { MODKEY,		XK_z,		setgaps,	{.i = +1 } },
         { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
+        { MODKEY,		XK_x,		setgaps,	{.i = gappx  } },
+        { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
 	{ CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
 	{ 0,		XF86XK_AudioRaiseVolume,spawn,		SHCMD("volume_change.sh -i") },
@@ -124,10 +126,11 @@ static Key keys[] = {
 	TAGKEYS(		XK_3,		2)
 	TAGKEYS(		XK_4,		3)
 	TAGKEYS(		XK_5,		4)
-	TAGKEYS(		XK_7,		5)
-	TAGKEYS(		XK_8,		6)
-	TAGKEYS(		XK_9,		7)
-	TAGKEYS(		XK_0,		8)
+	TAGKEYS(		XK_6,		5)
+	TAGKEYS(		XK_7,		6)
+	TAGKEYS(		XK_8,		7)
+	TAGKEYS(		XK_9,		8)
+	TAGKEYS(		XK_0,		9)
 };
 
 /* button definitions */
