@@ -70,57 +70,96 @@ static const char *termcmd[]  = { "urxvt", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,       	XK_p,		spawn,		{.v = dmenucmd } },
-        // { MODKEY|ShiftMask,	XK_p,		spawn,		SHCMD("") },
-	{ MODKEY,		XK_Escape,	togglebar,	{0} },
-	{ MODKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
-	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
-	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
-	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
 	{ MODKEY,		XK_a,		spawn,		SHCMD("dmenu_input.sh -g") },
 	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("new_wall.sh") },
-	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
+	/* { MODKEY,		XK_b,		,		{} }, */
+	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
+	/* { MODKEY,		XK_c,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_c,		,		{} }, */
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
+	/* { MODKEY,		XK_e,		,		{} */
+	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
+	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
+	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
+	/* { MODKEY,		XK_g,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_g,		,		{} }, */
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
+	/* { MODKEY|ShiftMask,	XK_h,		,		{} }, */
+	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
+	/* { MODKEY|ShiftMask,	XK_i,		,		{} }, */
+	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
+	/* { MODKEY|ShiftMask,	XK_j,		,		{} }, */
+	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
+	/* { MODKEY|ShiftMask,	XK_k,		,		{} }, */
 	{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
+	/* { MODKEY|ShiftMask,	XK_l,		,		{} }, */
+	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
+	/* { MODKEY,		XK_n,		,		{} */
+	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
+	/* { MODKEY,		XK_o,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_o,		,		{} }, */
+	{ MODKEY,       	XK_p,		spawn,		{.v = dmenucmd } },
+	/* { MODKEY|ShiftMask,	XK_p,		,		{} }, */
+	{ MODKEY,		XK_q,		killclient,	{0} },
+	/* { MODKEY|ShiftMask,	XK_q,		,		{} }, */
+	/* { MODKEY,		XK_r,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_r,		,		{} }, */
+	/* { MODKEY,		XK_s,		,		{} */
+	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
+	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
+	/* { MODKEY|ShiftMask,	XK_t,		,		{} }, */
+	/* { MODKEY,		XK_u,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_u,		,		{} }, */
+	/* { MODKEY,		XK_v,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_v,		,		{} }, */
+	/* { MODKEY,		XK_w,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_w,		,		{} }, */
+        { MODKEY,		XK_x,		setgaps,	{.i = gappx  } },
+        { MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } },
+	/* { MODKEY,		XK_y,		,		{} */
+	/* { MODKEY|ShiftMask,	XK_y,		,		{} }, */
+        { MODKEY,		XK_z,		setgaps,	{.i = +1 } },
+        { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
+
+        /* Non-alphabets. */
+
+	{ MODKEY,		XK_Escape,	togglebar,	{0} },
+	{ MODKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
 	{ MODKEY,		XK_Return,	zoom,		{0} },
 	{ MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") },
 	{ MODKEY,		XK_backslash,	view,		{0} },
-	{ MODKEY,		XK_q,		killclient,	{0} },
-	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
-	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
-        // { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
-	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
-	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
+	/* { MODKEY|ShiftMask,	XK_backslash,	,		{} }, */
 	{ MODKEY,		XK_space,	setlayout,	{0} },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
 	{ MODKEY,		XK_BackSpace,	view,		{.ui = ~0 } },
 	{ MODKEY|ShiftMask,	XK_BackSpace,	tag,		{.ui = ~0 } },
 	{ MODKEY,		XK_comma,	focusmon,	{.i = -1 } },
-	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_comma,	tagmon,		{.i = -1 } },
+	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
-	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
+	/* { MODKEY|ShiftMask,	XK_grave,	spawn,		SHCMD("focus_window.sh") }, */
+	{ MODKEY,		XK_Print,	spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
+	{ MODKEY|ShiftMask,	XK_Print,	spawn,		SHCMD("screenshot.sh") },       /* Fullscreen */
 	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
 	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("firefox -private-window") },
-        { MODKEY,		XK_z,		setgaps,	{.i = +1 } },
-        { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
-        { MODKEY,		XK_x,		setgaps,	{.i = gappx  } },
-        { MODKEY|ShiftMask,	XK_f,		setgaps,	{.i = 0  } },
+
+        /* Control Masks. */
+
 	{ CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
+
+        /* No masks. */
+
+	{ 0,			XK_Print,	spawn,		SHCMD("screenshot.sh -w") },    /* Current window. */
 	{ 0,		XF86XK_AudioRaiseVolume,spawn,		SHCMD("volume_change.sh -i") },
 	{ 0,		XF86XK_AudioLowerVolume,spawn,		SHCMD("volume_change.sh -d") },
 	{ 0,		    XF86XK_AudioMute,   spawn,		SHCMD("volume_change.sh -t") },
 	{ 0,		    XF86XK_AudioMicMute,spawn,		SHCMD("volume_change.sh -mm") },
 	{ 0,	      XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightness_change.sh -dec") },
 	{ 0,		XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightness_change.sh -inc") },
-	{ 0,			XK_Print,	spawn,		SHCMD("screenshot.sh -w") },    /* Current window. */
-	{ MODKEY,		XK_Print,	spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
-	{ MODKEY|ShiftMask,	XK_Print,	spawn,		SHCMD("screenshot.sh") },       /* Fullscreen */
 	TAGKEYS(		XK_1,		0)
 	TAGKEYS(		XK_2,		1)
 	TAGKEYS(		XK_3,		2)
