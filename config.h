@@ -79,7 +79,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
         /* { MODKEY,		XK_e,		quit,		{0} }, */
-	{ MODKEY|ShiftMask,	XK_e,		quit,		{1} },
+	/* { MODKEY|ShiftMask,	XK_e,		,		{} }, */
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
 	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
 	/* { MODKEY,		XK_g,		,		{} */
@@ -105,7 +105,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_q,		killclient,	{0} },
 	/* { MODKEY|ShiftMask,	XK_q,		,		{} }, */
 	/* { MODKEY,		XK_r,		,		{} */
-	/* { MODKEY|ShiftMask,	XK_r,		,		{} }, */
+	{ MODKEY|ShiftMask,	XK_r,		quit,		{1} },
 	/* { MODKEY,		XK_s,		,		{} */
 	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
@@ -127,6 +127,8 @@ static Key keys[] = {
 
 	{ MODKEY,		XK_Escape,	togglebar,	{0} },
 	{ MODKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
+        { MODKEY,		XK_Delete,	spawn,		SHCMD("$TERMINAL -e htop") },
+	/* { MODKEY|ShiftMask,	XK_Delete,	spawn,		SHCMD("samedir.sh") }, */
 	{ MODKEY,		XK_Return,	zoom,		{0} },
 	{ MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") },
 	{ MODKEY,		XK_backslash,	view,		{0} },
