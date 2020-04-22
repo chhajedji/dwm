@@ -59,6 +59,6 @@ Patches
 - [autostart](https://dwm.suckless.org/patches/autostart/) - Autostart applications after startup.
 - [systray](https://dwm.suckless.org/patches/autostart/) - Showing system tray to hold icons for applications like nm-applet.
 [restartsig](https://dwm.suckless.org/patches/restartsig/) - Apply changes without quitting dwm.
-[pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps layout, mwfact, barpos and nmaster separate for each tag.
+- [pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps layout, mwfact, barpos and nmaster separate for each tag.
 ---
 Scripts used in `config.h` can be found [here](https://github.com/chinmaychhajed/scripts/).

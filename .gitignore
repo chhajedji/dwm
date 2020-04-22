@@ -3,3 +3,4 @@ patches/
 dwm
 .build
 dwm.1
+*.orig
