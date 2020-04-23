@@ -49,6 +49,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
 };
 
 /* key definitions */
@@ -72,7 +74,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,		XK_a,		spawn,		SHCMD("dmenu_input.sh -g") },
 	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("new_wall.sh") },
-	/* { MODKEY,		XK_b,		,		{} }, */
+        { MODKEY,		XK_b,		setlayout,	{.v = &layouts[3]} },
 	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
         { MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
         // { MODKEY|ShiftMask,	XK_c,		,		{} },
