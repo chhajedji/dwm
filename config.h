@@ -12,7 +12,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static const char *fonts[]          = { "monospace:size=10", "Noto Color Emoji:style=Regular"  };
 static const char dmenufont[]       = "Inconsolata:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -74,8 +74,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("new_wall.sh") },
 	/* { MODKEY,		XK_b,		,		{} }, */
 	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
-	/* { MODKEY,		XK_c,		,		{} */
-	/* { MODKEY|ShiftMask,	XK_c,		,		{} }, */
+        { MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
+        // { MODKEY|ShiftMask,	XK_c,		,		{} },
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
         /* { MODKEY,		XK_e,		quit,		{0} }, */
