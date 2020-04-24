@@ -74,13 +74,13 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,		XK_a,		spawn,		SHCMD("dmenu_input.sh -g") },
 	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("new_wall.sh") },
-        { MODKEY,		XK_b,		setlayout,	{.v = &layouts[3]} },
+	{ MODKEY,		XK_b,		setlayout,	{.v = &layouts[3]} },
 	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
-        { MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
-        // { MODKEY|ShiftMask,	XK_c,		,		{} },
+	{ MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
+	/* { MODKEY|ShiftMask,	XK_c,		,		{} }, */
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
-        /* { MODKEY,		XK_e,		quit,		{0} }, */
+	/* { MODKEY,		XK_e,		quit,		{0} }, */
 	/* { MODKEY|ShiftMask,	XK_e,		,		{} }, */
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
 	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
@@ -118,12 +118,12 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_v,		,		{} }, */
 	/* { MODKEY,		XK_w,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_w,		,		{} }, */
-        { MODKEY,		XK_x,		setgaps,	{.i = gappx  } },
-        { MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } },
+	{ MODKEY,		XK_x,		setgaps,	{.i = gappx  } },
+	{ MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } },
 	/* { MODKEY,		XK_y,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_y,		,		{} }, */
-        { MODKEY,		XK_z,		setgaps,	{.i = +1 } },
-        { MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
+	{ MODKEY,		XK_z,		setgaps,	{.i = +1 } },
+	{ MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
 
         /* Non-alphabets. */
 
@@ -150,12 +150,12 @@ static Key keys[] = {
 	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
 	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("firefox -private-window") },
 
-        /* Control Masks. */
+	/* Control Masks. */
 
 	{ CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
 
-        /* No masks. */
+	/* No masks. */
 
 	{ 0,			XK_Print,	spawn,		SHCMD("screenshot.sh -w") },    /* Current window. */
 	{ 0,		XF86XK_AudioRaiseVolume,spawn,		SHCMD("volume_change.sh -i") },
