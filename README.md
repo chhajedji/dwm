@@ -61,5 +61,6 @@ Patches
 - [restartsig](https://dwm.suckless.org/patches/restartsig/) - Apply changes without quitting dwm.
 - [pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps `layout`, `mwfact` and `nmaster` separate for each tag. `barpos` remains same for every tag.
 - [bottomstack with ru_gaps](https://dwm.suckless.org/patches/ru_gaps/) - Same as tile layout but instead of single columns, new windows are attached in single row below master window. `ru_gaps` adds gaps to it.
+- [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows.
 ---
 Scripts used in `config.h` can be found [here](https://github.com/chinmaychhajed/scripts/).
