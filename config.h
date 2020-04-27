@@ -81,7 +81,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
 	/* { MODKEY,		XK_e,		quit,		{0} }, */
-	/* { MODKEY|ShiftMask,	XK_e,		,		{} }, */
+	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
 	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
 	/* { MODKEY,		XK_g,		,		{} */
@@ -127,6 +127,14 @@ static Key keys[] = {
 
         /* Non-alphabets. */
 
+	{ MODKEY,		XK_Down,	focusstack,	{.i = +1 } },
+	/* { MODKEY|ShiftMask,	XK_Down,	focusstack,	{.i = +1 } }, */
+	{ MODKEY,		XK_Up,		focusstack,	{.i = -1 } },
+	/* { MODKEY,		XK_Up,		focusstack,	{.i = -1 } }, */
+	{ MODKEY,		XK_Left,	setmfact,	{.f = -0.05} },
+	/* { MODKEY,		XK_Left,	setmfact,	{.f = -0.05} }, */
+	{ MODKEY,		XK_Right,	setmfact,	{.f = +0.05} },
+	/* { MODKEY,		XK_Right,	setmfact,	{.f = +0.05} }, */
 	{ MODKEY,		XK_Escape,	togglebar,	{0} },
 	{ MODKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
         { MODKEY,		XK_Delete,	spawn,		SHCMD("$TERMINAL -e htop") },
