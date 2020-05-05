@@ -166,6 +166,8 @@ static Key keys[] = {
 	/* No masks. */
 
 	{ 0,			XK_Print,	spawn,		SHCMD("screenshot.sh -w") },    /* Current window. */
+	{ 0,			XK_Caps_Lock,	spawn,		SHCMD("restartbar.sh") },
+	{ 0,			XK_Num_Lock,	spawn,		SHCMD("restartbar.sh") },
 	{ 0,		XF86XK_AudioRaiseVolume,spawn,		SHCMD("volume_change.sh -i") },
 	{ 0,		XF86XK_AudioLowerVolume,spawn,		SHCMD("volume_change.sh -d") },
 	{ 0,		    XF86XK_AudioMute,   spawn,		SHCMD("volume_change.sh -t") },
