@@ -46,11 +46,13 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
+/* 0 */	{ "[]=",      tile },    /* first entry is default */
+/* 1 */	{ "><>",      NULL },    /* no layout function means floating behavior */
+/* 2 */	{ "[M]",      monocle },
+/* 3 */	{ "TTT",      bstack },
+/* 4 */	{ "===",      bstackhoriz },
+/* 5 */	{ "|M|",      centeredmaster },
+/* 6 */	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -84,8 +86,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
 	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
-	/* { MODKEY,		XK_g,		,		{} */
-	/* { MODKEY|ShiftMask,	XK_g,		,		{} }, */
+	{ MODKEY,		XK_g,		setlayout,	{.v = &layouts[5]} },
+	{ MODKEY|ShiftMask,	XK_g,		setlayout,	{.v = &layouts[6]} },
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
 	/* { MODKEY|ShiftMask,	XK_h,		,		{} }, */
 	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
@@ -141,7 +143,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_Delete,	spawn,		SHCMD("samedir.sh") }, */
 	{ MODKEY,		XK_Return,	zoom,		{0} },
 	{ MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") },
-	{ MODKEY,		XK_backslash,	view,		{0} },
+	{ MODKEY,		XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,	XK_backslash,	,		{} }, */
 	{ MODKEY,		XK_space,	setlayout,	{0} },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
