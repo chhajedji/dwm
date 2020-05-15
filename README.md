@@ -64,6 +64,7 @@ Patches
 - [centeredmaster with ru_gaps](https://dwm.suckless.org/patches/ru_gaps/) - Keep master in center and slaves at sides. This is with gaps present between windows. Here is  [original](https://dwm.suckless.org/patches/centeredmaster/) without gaps.
 - [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows.
 > _Modified patch activetagindicatorbar. Changed bar length and position from top to bottom._
+- [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/) - Hide vacant tags :)
 
 After modified activetagindicatorbar:
 
