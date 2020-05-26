@@ -82,7 +82,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_c,		,		{} }, */
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
-	/* { MODKEY,		XK_e,		quit,		{0} }, */
+	{ MODKEY,		XK_e,		spawn,		SHCMD("editor.sh") },
 	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
 	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
