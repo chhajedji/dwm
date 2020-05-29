@@ -62,9 +62,10 @@ Patches
 - [pertag](https://dwm.suckless.org/patches/pertag/) - This patch keeps `layout`, `mwfact` and `nmaster` separate for each tag. `barpos` remains same for every tag.
 - [bottomstack with ru_gaps](https://dwm.suckless.org/patches/ru_gaps/) - Same as tile layout but instead of single columns, new windows are attached in single row below master window. `ru_gaps` adds gaps to it.
 - [centeredmaster with ru_gaps](https://dwm.suckless.org/patches/ru_gaps/) - Keep master in center and slaves at sides. This is with gaps present between windows. Here is  [original](https://dwm.suckless.org/patches/centeredmaster/) without gaps.
-- [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows.
-> _Modified patch activetagindicatorbar. Changed bar length and position from top to bottom._
+- [fullscreen](https://dwm.suckless.org/patches/fullscreen/) - Applies the monocle layout with the focused client on top and hides the bar. When pressed again, shows the bar and restores the layout that was active before going fullscreen.
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/) - Hide vacant tags :)
+- [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows. This is not so useful when hide_vacant_tags is used.
+> _Modified patch activetagindicatorbar. Changed bar length and position from top to bottom._
 
 After modified activetagindicatorbar:
 

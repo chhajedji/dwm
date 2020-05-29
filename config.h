@@ -84,8 +84,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
 	{ MODKEY,		XK_e,		spawn,		SHCMD("editor.sh") },
 	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
-	{ MODKEY,		XK_f,		setlayout,	{.v = &layouts[1]} },
-	/* { MODKEY|ShiftMask,	XK_f,		,		{} }, */
+	{ MODKEY,		XK_f,		fullscreen,     {0} },
+	{ MODKEY|ShiftMask,	XK_f,		setlayout,	{.v = &layouts[1]} },
 	{ MODKEY,		XK_g,		setlayout,	{.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,	XK_g,		setlayout,	{.v = &layouts[6]} },
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
