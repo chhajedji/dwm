@@ -11,7 +11,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10", "Noto Color Emoji:style=Regular"  };
 static const char dmenufont[]       = "Inconsolata:size=12";
 static const char col_gray1[]       = "#222222";
@@ -98,16 +98,16 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_k,		,		{} }, */
 	{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
 	/* { MODKEY|ShiftMask,	XK_l,		,		{} }, */
-	{ MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} },
+	/* { MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} }, */
 	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
 	/* { MODKEY,		XK_n,		,		{} */
 	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
-	/* { MODKEY,		XK_o,		,		{} */
-	/* { MODKEY|ShiftMask,	XK_o,		,		{} }, */
+	{ MODKEY,		XK_o,		spawn,		SHCMD("dmenu_input.sh -r") },
+	{ MODKEY|ShiftMask,	XK_o,		spawn,		SHCMD("dmenu_input.sh -f") },
 	{ MODKEY,       	XK_p,		spawn,		{.v = dmenucmd } },
 	/* { MODKEY|ShiftMask,	XK_p,		,		{} }, */
 	{ MODKEY,		XK_q,		killclient,	{0} },
-	/* { MODKEY|ShiftMask,	XK_q,		,		{} }, */
+	{ MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	/* { MODKEY,		XK_r,		,		{} */
 	{ MODKEY|ShiftMask,	XK_r,		quit,		{1} },
 	/* { MODKEY,		XK_s,		,		{} */
@@ -162,7 +162,7 @@ static Key keys[] = {
 
 	/* Control Masks. */
 
-	{ CONTROLKEY,		XK_q,		spawn,		SHCMD("blur_lock.sh") },
+	/* { CONTROLKEY,	XK_q,		spawn,		SHCMD("blur_lock.sh") }, */
 	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
 
 	/* No masks. */
