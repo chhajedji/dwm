@@ -143,6 +143,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_Delete,	spawn,		SHCMD("samedir.sh") }, */
 	{ MODKEY,		XK_Return,	zoom,		{0} },
 	{ MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") },
+	{ MODKEY,		XK_KP_Enter,	zoom,		{0} },
+	{ MODKEY|ShiftMask,	XK_KP_Enter,	spawn,		SHCMD("samedir.sh") },
 	{ MODKEY,		XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,	XK_backslash,	,		{} }, */
 	{ MODKEY,		XK_space,	setlayout,	{0} },
@@ -186,6 +188,16 @@ static Key keys[] = {
 	TAGKEYS(		XK_8,		7)
 	TAGKEYS(		XK_9,		8)
 	TAGKEYS(		XK_0,		9)
+	TAGKEYS(		XK_KP_1,	0)
+	TAGKEYS(		XK_KP_2,	1)
+	TAGKEYS(		XK_KP_3,	2)
+	TAGKEYS(		XK_KP_4,	3)
+	TAGKEYS(		XK_KP_5,	4)
+	TAGKEYS(		XK_KP_6,	5)
+	TAGKEYS(		XK_KP_7,	6)
+	TAGKEYS(		XK_KP_8,	7)
+	TAGKEYS(		XK_KP_9,	8)
+	TAGKEYS(		XK_KP_0,	9)
 };
 
 /* button definitions */
