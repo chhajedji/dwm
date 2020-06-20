@@ -65,6 +65,7 @@ Patches
 - [fullscreen](https://dwm.suckless.org/patches/fullscreen/) - Applies the monocle layout with the focused client on top and hides the bar. When pressed again, shows the bar and restores the layout that was active before going fullscreen.
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/) - Hide vacant tags :)
 - [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows. This is not so useful when hide-vacant-tags is used and hence **inacitve** in this build. To activate this, uncomment the code in [dwm.c](./dwm.c) under comment `[ACTIVEBARINDICATION]`.
+- [tagswapmon](https://github.com/bakkeby/patches/blob/master/dwm/dwm-tagswapmon-6.2.diff) - Swap tags between two monitors. Bring the important tag present on secondary screen onto primary screen with a single keybinding.
 > _Modified patch activetagindicatorbar. Changed bar length and position from top to bottom._
 
 After modified activetagindicatorbar:

@@ -153,8 +153,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_BackSpace,	tag,		{.ui = ~0 } },
 	{ MODKEY,		XK_comma,	focusmon,	{.i = -1 } },
 	{ MODKEY|ShiftMask,	XK_comma,	tagmon,		{.i = -1 } },
+	{ MODKEY|ControlMask,	XK_comma,	tagswapmon,	{.i = +1 } },
 	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
+	{ MODKEY|ControlMask,	XK_period,	tagswapmon,	{.i = -1 } },
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
 	/* { MODKEY|ShiftMask,	XK_grave,	spawn,		SHCMD("focus_window.sh") }, */
 	{ MODKEY,		XK_Print,	spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
