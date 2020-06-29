@@ -58,6 +58,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define CONTROLKEY ControlMask
 #define MODKEY Mod4Mask     /* Mod 4 --> Super */
+#define HOLDKEY 0xffeb	    /* Keysym for Super_L. Check other keysyms with `xev'. */
 #define TAGKEYS(KEY,TAG) \
 { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -180,6 +181,7 @@ static Key keys[] = {
 	{ 0,		    XF86XK_AudioMicMute,spawn,		SHCMD("volume_change.sh -mm") },
 	{ 0,	      XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightness_change.sh -dec") },
 	{ 0,		XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightness_change.sh -inc") },
+	{ 0,		HOLDKEY,		holdbar,	{0} },
 	TAGKEYS(		XK_1,		0)
 	TAGKEYS(		XK_2,		1)
 	TAGKEYS(		XK_3,		2)
