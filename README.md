@@ -55,6 +55,8 @@ and (re)compiling the source code.
 Patches
 -------
 
+> Not a patch but just a highlight, there are 10 tags in this dwn fork rather default 9. 10th tag is binded with "0" key.
+
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps/) - For showing gaps in dwm 6.2.
 - [autostart](https://dwm.suckless.org/patches/autostart/) - Autostart applications after startup.
 - [systray](https://dwm.suckless.org/patches/autostart/) - Showing system tray to hold icons for applications like `nm-applet`.
