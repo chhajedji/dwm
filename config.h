@@ -81,24 +81,25 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
 	{ MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
 	/* { MODKEY|ShiftMask,	XK_c,		,		{} }, */
-	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
+	/* { MODKEY,		XK_d,		incnmaster,	{.i = -1 } }, */
 	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
 	{ MODKEY,		XK_e,		spawn,		SHCMD("editor.sh") },
-	{ MODKEY|ShiftMask,	XK_e,		quit,		{0} },
+	/* { MODKEY|ShiftMask,	XK_e,		quit,		{0} }, */
+	{ MODKEY|ControlMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_f,		fullscreen,     {0} },
 	{ MODKEY|ShiftMask,	XK_f,		setlayout,	{.v = &layouts[1]} },
 	{ MODKEY,		XK_g,		setlayout,	{.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,	XK_g,		setlayout,	{.v = &layouts[6]} },
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
-	/* { MODKEY|ShiftMask,	XK_h,		,		{} }, */
-	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
+	{ MODKEY|ShiftMask,	XK_h,		incnmaster,	{.i = +1 } },
+	/* { MODKEY,		XK_i,		incnmaster,	{.i = +1 } }, */
 	/* { MODKEY|ShiftMask,	XK_i,		,		{} }, */
 	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
 	/* { MODKEY|ShiftMask,	XK_j,		,		{} }, */
 	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
 	/* { MODKEY|ShiftMask,	XK_k,		,		{} }, */
 	{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
-	/* { MODKEY|ShiftMask,	XK_l,		,		{} }, */
+	{ MODKEY|ShiftMask,	XK_l,		incnmaster,	{.i = -1 } },
 	/* { MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} }, */
 	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
 	/* { MODKEY,		XK_n,		,		{} */
@@ -108,9 +109,11 @@ static Key keys[] = {
 	{ MODKEY,       	XK_p,		spawn,		{.v = dmenucmd } },
 	/* { MODKEY|ShiftMask,	XK_p,		,		{} }, */
 	{ MODKEY,		XK_q,		killclient,	{0} },
-	{ MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") },
+	/* { MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") }, */
+	{ MODKEY|ControlMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") },
 	/* { MODKEY,		XK_r,		,		{} */
-	{ MODKEY|ShiftMask,	XK_r,		quit,		{1} },
+	/* { MODKEY|ShiftMask,	XK_r,		quit,		{1} }, */
+	{ MODKEY|ControlMask,	XK_r,		quit,		{1} },
 	/* { MODKEY,		XK_s,		,		{} */
 	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
