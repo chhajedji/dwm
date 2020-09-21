@@ -36,6 +36,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "dolphin",  NULL,       NULL,       0,            1,           0 },
+	{ "yakuake",  NULL,       NULL,       0,            1,           0 },
+	{ "Microsoft Teams - Preview",
+		      NULL,       NULL,       0,            1,           0 },
 	/*	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
 };
 
@@ -162,7 +165,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
 	{ MODKEY|ControlMask,	XK_period,	tagswapmon,	{.i = -1 } },
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
-	/* { MODKEY|ShiftMask,	XK_grave,	spawn,		SHCMD("focus_window.sh") }, */
+	/* { MODKEY|ShiftMask,	XK_grave,	spawn,		SHCMD("notification_toggle.sh") }, */
+	{ MODKEY|ControlMask,	XK_grave,	spawn,		SHCMD("notification_toggle.sh") },
 	{ MODKEY,		XK_Print,	spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
 	{ MODKEY|ShiftMask,	XK_Print,	spawn,		SHCMD("screenshot.sh") },       /* Fullscreen */
 	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
