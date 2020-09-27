@@ -77,3 +77,7 @@ After modified activetagindicatorbar:
 - [holdbar](https://dwm.suckless.org/patches/holdbar/) - Shows bar only when `HOLDKEY` is pressed. Some modifications in this patch. When bar is hidden, `holdbar` will be active and when bar is visible (after using `togglebar`), `holdbar` will not work. This is actually the default behavior of the patch when `HOLDKEY` is not `MODKEY`. But now this will work even when `HOLDKEY` is `MODKEY`. See [this](https://github.com/bakkeby/dwm-flexipatch/issues/35) thread.
 ---
 Scripts used in `config.h` can be found [here](https://github.com/chinmaychhajed/scripts/).
+
+After all the pathces, view appears as follows.
+
+![screen](screen.png)
