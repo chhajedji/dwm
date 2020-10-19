@@ -12,6 +12,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
+static const int focusedontop       = 1;        /* 1 means focused client is shown on top of floating windows */
 static const char *fonts[]          = { "monospace:size=10", "Noto Color Emoji:style=Regular"  };
 static const char dmenufont[]       = "Inconsolata:size=12";
 static const char col_gray1[]       = "#222222";
@@ -28,18 +29,28 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
+#define WTYPE "_NET_WM_WINDOW_TYPE_"
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "dolphin",  NULL,       NULL,       0,            1,           0 },
-	{ "yakuake",  NULL,       NULL,       0,            1,           0 },
-	{ "Microsoft Teams - Preview",
-		      NULL,       NULL,       0,            1,           0 },
+	// { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	// { "dolphin",  NULL,       NULL,       0,            1,           0 },
+	// { "yakuake",  NULL,       NULL,       0,            1,           0 },
+	// { "Microsoft Teams - Preview",
+		      // NULL,       NULL,       0,            1,           0 },
 	/*	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
+
+       /* class      role        instance  title  wintype,          tags mask  isfloating  alwaysontop monitor */
+       { NULL,       NULL,       NULL,     NULL,  WTYPE "DIALOG",   0,         1,          1,          -1 },
+       { NULL,       NULL,       NULL,     NULL,  WTYPE "UTILITY",  0,         1,          1,          -1 },
+       { NULL,       NULL,       NULL,     NULL,  WTYPE "TOOLBAR",  0,         1,          1,          -1 },
+       { NULL,       NULL,       NULL,     NULL,  WTYPE "SPLASH",   0,         1,          1,          -1 },
+       { "Gimp",     NULL,       NULL,     NULL,  NULL,             0,         1,          0,          -1 },
+       { "Firefox",  NULL,       NULL,     NULL,  NULL,             1 << 8,    0,          0,          -1 },
+       { NULL,       "pop-up",   NULL,     NULL,  NULL,             0,         1,          1,          -1 },
 };
 
 /* layout(s) */
