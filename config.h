@@ -90,7 +90,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_e,		quit,		{0} }, */
 	{ MODKEY|ControlMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_f,		fullscreen,     {0} },
-	{ MODKEY|ShiftMask,	XK_f,		setlayout,	{.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,	XK_f,		spawn,		SHCMD("dmenu_input.sh -t") },
 	{ MODKEY,		XK_g,		setlayout,	{.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,	XK_g,		setlayout,	{.v = &layouts[6]} },
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
