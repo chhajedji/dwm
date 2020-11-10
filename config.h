@@ -35,10 +35,10 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "dolphin",  NULL,       NULL,       0,            1,           0 },
-	{ "yakuake",  NULL,       NULL,       0,            1,           0 },
+	{ "dolphin",  NULL,       NULL,       0,            1,           -1 },
+	{ "yakuake",  NULL,       NULL,       0,            1,           -1 },
 	{ "Microsoft Teams - Preview",
-		      NULL,       NULL,       0,            1,           0 },
+		      NULL,       NULL,       0,            1,           -1 },
 	/*	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
 };
 
