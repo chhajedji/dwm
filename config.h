@@ -175,7 +175,7 @@ static Key keys[] = {
 	/* Control Masks. */
 
 	/* { CONTROLKEY,	XK_q,		spawn,		SHCMD("blur_lock.sh") }, */
-	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("suspend_lock.sh") },
+	{ CONTROLKEY|ShiftMask,	XK_q,		spawn,		SHCMD("dmenu_input.sh -e") },
 
 	/* No masks. */
 

@@ -2959,6 +2959,3 @@ centeredfloatingmaster(Monitor *m)
 			tx += WIDTH(c) + m->gappx;
 	}
 }
-
-
-/* Use `printf "0. Restart\n2. Logout" |dmenu -nf "#000000" -nb "#b40000"` */
