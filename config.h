@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 #include <X11/XF86keysym.h>
+#include "include_patches.h"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -54,8 +55,10 @@ static const Layout layouts[] = {
 /* 2 */	{ "[M]",      monocle },
 /* 3 */	{ "TTT",      bstack },
 /* 4 */	{ "===",      bstackhoriz },
+#if CENTERED_MASTER
 /* 5 */	{ "|M|",      centeredmaster },
 /* 6 */	{ ">M>",      centeredfloatingmaster },
+#endif  // CENTERED_MASTER
 };
 
 /* key definitions */
@@ -91,8 +94,10 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,	XK_e,		quit,		{0} },
 	{ MODKEY,		XK_f,		fullscreen,     {0} },
 	{ MODKEY|ShiftMask,	XK_f,		spawn,		SHCMD("dmenu_input.sh -t") },
+#if CENTERED_MASTER
 	{ MODKEY,		XK_g,		setlayout,	{.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,	XK_g,		setlayout,	{.v = &layouts[6]} },
+#endif  // CENTERED_MASTER
 	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
 	{ MODKEY|ShiftMask,	XK_h,		incnmaster,	{.i = +1 } },
 	/* { MODKEY,		XK_i,		incnmaster,	{.i = +1 } }, */

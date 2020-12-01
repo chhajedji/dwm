@@ -41,6 +41,7 @@
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
 
+#include "include_patches.h"
 #include "drw.h"
 #include "util.h"
 
@@ -281,8 +282,11 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
+
+#if CENTERED_MASTER
 static void centeredmaster(Monitor *m);
 static void centeredfloatingmaster(Monitor *m);
+#endif  // CENTERED_MASTER
 
 /* variables */
 static Systray *systray =  NULL;
@@ -2836,6 +2840,7 @@ bstackhoriz(Monitor *m)
 		}
 }
 
+#if CENTERED_MASTER
 void
 centeredmaster(Monitor *m)
 {
@@ -2959,3 +2964,4 @@ centeredfloatingmaster(Monitor *m)
 			tx += WIDTH(c) + m->gappx;
 	}
 }
+#endif  // CENTERED_MASTER

@@ -55,7 +55,9 @@ and (re)compiling the source code.
 Patches
 -------
 
-> Not a patch but just a highlight, there are 10 tags in this dwn fork rather default 9. 10th tag is binded with "0" key.
+The file `include_patches.h` contains macros which enable/disable some of the patches. To enable a patch, set the value of corresponding macro to `1`. And similarly to disable, set to `0`.
+
+> Note that there are 10 tags in this dwn fork rather default 9. 10th tag is binded with "0" key.
 
 - [fullgaps](https://dwm.suckless.org/patches/fullgaps/) - For showing gaps in dwm 6.2.
 - [autostart](https://dwm.suckless.org/patches/autostart/) - Autostart applications after startup.
