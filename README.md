@@ -77,6 +77,7 @@ After modified activetagindicatorbar:
 
 - [tagswapmon](https://github.com/bakkeby/patches/blob/master/dwm/dwm-tagswapmon-6.2.diff) - Swap tags between two monitors. Bring the important tag present on secondary screen onto primary screen with a single keybinding.
 - [holdbar](https://dwm.suckless.org/patches/holdbar/) - Shows bar only when `HOLDKEY` is pressed. Some modifications in this patch. When bar is hidden, `holdbar` will be active and when bar is visible (after using `togglebar`), `holdbar` will not work. This is actually the default behavior of the patch when `HOLDKEY` is not `MODKEY`. But now this will work even when `HOLDKEY` is `MODKEY`. See [this](https://github.com/bakkeby/dwm-flexipatch/issues/35) thread.
+- [attachaside](https://dwm.suckless.org/patches/attachaside/) - Make new clients get attached and focused in the stacking area instead of always becoming the new master.
 ---
 Scripts used in `config.h` can be found [here](https://github.com/chinmaychhajed/scripts/).
 

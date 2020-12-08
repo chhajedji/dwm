@@ -50,7 +50,12 @@
 #define CLEANMASK(mask)         (mask & ~(numlockmask|LockMask) & (ShiftMask|ControlMask|Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask))
 #define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
                                * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
+#if ATTACH_ASIDE
+#define ISVISIBLEONTAG(C, T)    ((C->tags & T))
+#define ISVISIBLE(C)            ISVISIBLEONTAG(C, C->mon->tagset[C->mon->seltags])
+#else
 #define ISVISIBLE(C)            ((C->tags & C->mon->tagset[C->mon->seltags]))
+#endif  //ATTACH_ASIDE
 #define LENGTH(X)               (sizeof X / sizeof X[0])
 #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
 #define WIDTH(X)                ((X)->w + 2 * (X)->bw)
@@ -175,6 +180,10 @@ static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interac
 static void arrange(Monitor *m);
 static void arrangemon(Monitor *m);
 static void attach(Client *c);
+#if ATTACH_ASIDE
+static void attachaside(Client *c);
+static Client *nexttagged(Client *c);
+#endif  // ATTACH_ASIDE
 static void attachstack(Client *c);
 static void buttonpress(XEvent *e);
 static void checkotherwm(void);
@@ -519,6 +528,19 @@ attach(Client *c)
 	c->next = c->mon->clients;
 	c->mon->clients = c;
 }
+
+#if ATTACH_ASIDE
+void
+attachaside(Client *c) {
+	Client *at = nexttagged(c);
+	if(!at) {
+		attach(c);
+		return;
+	}
+	c->next = at->next;
+	at->next = c;
+}
+#endif  // ATTACH_ASIDE
 
 void
 attachstack(Client *c)
@@ -1293,7 +1315,11 @@ manage(Window w, XWindowAttributes *wa)
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
 	if (c->isfloating)
 		XRaiseWindow(dpy, c->win);
+#if ATTACH_ASIDE
+        attachaside(c);
+#else
 	attach(c);
+#endif  // ATTACH_ASIDE
 	attachstack(c);
 	XChangeProperty(dpy, root, netatom[NetClientList], XA_WINDOW, 32, PropModeAppend,
 		(unsigned char *) &(c->win), 1);
@@ -1428,6 +1454,18 @@ movemouse(const Arg *arg)
 		focus(NULL);
 	}
 }
+
+#if ATTACH_ASIDE
+Client *
+nexttagged(Client *c) {
+	Client *walked = c->mon->clients;
+	for(;
+		walked && (walked->isfloating || !ISVISIBLEONTAG(walked, c->tags));
+		walked = walked->next
+	);
+	return walked;
+}
+#endif  // ATTACH_ASIDE
 
 Client *
 nexttiled(Client *c)
@@ -1708,7 +1746,11 @@ sendmon(Client *c, Monitor *m)
 	detachstack(c);
 	c->mon = m;
 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+#if ATTACH_ASIDE
+        attachaside(c);
+#else
 	attach(c);
+#endif  // ATTACH_ASIDE
 	attachstack(c);
 	focus(NULL);
 	arrange(NULL);
@@ -2355,7 +2397,11 @@ updategeom(void)
 					m->clients = c->next;
 					detachstack(c);
 					c->mon = mons;
+#if ATTACH_ASIDE
+                                        attachaside(c);
+#else
 					attach(c);
+#endif  // ATTACH_ASIDE
 					attachstack(c);
 				}
 				if (m == selmon)
