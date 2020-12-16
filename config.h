@@ -155,12 +155,12 @@ static Key keys[] = {
         { MODKEY,		XK_Delete,	spawn,		SHCMD("$TERMINAL -e htop") },
 	/* { MODKEY|ShiftMask,	XK_Delete,	spawn,		SHCMD("samedir.sh") }, */
 	{ MODKEY,		XK_Return,	zoom,		{0} },
-	{ MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") },
+	/* { MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") }, */
 	{ MODKEY,		XK_KP_Enter,	zoom,		{0} },
 	{ MODKEY|ShiftMask,	XK_KP_Enter,	spawn,		SHCMD("samedir.sh") },
 	{ MODKEY,		XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,	XK_backslash,	,		{} }, */
-	{ MODKEY,		XK_space,	setlayout,	{0} },
+	{ MODKEY,		XK_space,	spawn,		SHCMD("samedir.sh") },
 	{ MODKEY|ShiftMask,	XK_space,	togglefloating,	{0} },
 	{ MODKEY,		XK_BackSpace,	view,		{.ui = ~0 } },
 	{ MODKEY|ShiftMask,	XK_BackSpace,	tag,		{.ui = ~0 } },
