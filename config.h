@@ -4,7 +4,7 @@
 #include "include_patches.h"
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -133,8 +133,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_v,		,		{} }, */
 	{ MODKEY,		XK_w,		spawn,		SHCMD("dmenu_input.sh -w") },
 	/* { MODKEY|ShiftMask,	XK_w,		,		{} }, */
-	{ MODKEY,		XK_x,		setgaps,	{.i = gappx  } },
-	{ MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } },
+	/* { MODKEY,		XK_x,		setgaps,	{.i = gappx  } }, */
+	/* { MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } }, */
 	/* { MODKEY,		XK_y,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_y,		,		{} }, */
 	{ MODKEY,		XK_z,		setgaps,	{.i = +1 } },
@@ -170,6 +170,8 @@ static Key keys[] = {
 	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
 	{ MODKEY|ControlMask,	XK_period,	tagswapmon,	{.i = -1 } },
+	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("ibus-ui-emojier-plasma") },
+	/* { MODKEY|ShiftMask,	XK_semicolon,	spawn,		SHCMD("pgrep plasma && ibus-ui-emojier-plasma") }, */
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
 	/* { MODKEY|ShiftMask,	XK_grave,	spawn,		SHCMD("notification_toggle.sh") }, */
 	{ MODKEY|ControlMask,	XK_grave,	spawn,		SHCMD("notification_toggle.sh") },
