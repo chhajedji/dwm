@@ -78,6 +78,7 @@ After modified activetagindicatorbar:
 - [tagswapmon](https://github.com/bakkeby/patches/blob/master/dwm/dwm-tagswapmon-6.2.diff) - Swap tags between two monitors. Bring the important tag present on secondary screen onto primary screen with a single keybinding.
 - [holdbar](https://dwm.suckless.org/patches/holdbar/) - Shows bar only when `HOLDKEY` is pressed. Some modifications in this patch. When bar is hidden, `holdbar` will be active and when bar is visible (after using `togglebar`), `holdbar` will not work. This is actually the default behavior of the patch when `HOLDKEY` is not `MODKEY`. But now this will work even when `HOLDKEY` is `MODKEY`. See [this](https://github.com/bakkeby/dwm-flexipatch/issues/35) thread.
 - [attachaside](https://dwm.suckless.org/patches/attachaside/) - Make new clients get attached and focused in the stacking area instead of always becoming the new master.
+- [statuscolors](https://dwm.suckless.org/patches/statuscolors/) - Add colors to status bar. This patch is currently inactive as it adds some unknown gaps when used with along systray patch. [Here is a reddit discussion regarding same issue](https://www.reddit.com/r/unixporn/comments/ahoudy/need_help_status_color_patch_on_dwm_a_strange_gap/). Really useful patch if it's working properly.
 ---
 Scripts used in `config.h` can be found [here](https://github.com/chinmaychhajed/scripts/).
 

@@ -5,3 +5,4 @@
 // Centered master layout patch.
 #define CENTERED_MASTER         (0)
 #define ATTACH_ASIDE            (1)
+#define STATUSCOLOR             (0)
