@@ -6,3 +6,4 @@
 #define CENTERED_MASTER         (0)
 #define ATTACH_ASIDE            (1)
 #define STATUSCOLOR             (0)
+#define FULL_SCREEN             (0)

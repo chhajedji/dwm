@@ -243,7 +243,9 @@ static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
 static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
+#if FULL_SCREEN
 static void fullscreen(const Arg *arg);
+#endif  //FULL_SCREEN
 static void setgaps(const Arg *arg);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
@@ -1871,6 +1873,7 @@ setgaps(const Arg *arg)
 	arrange(selmon);
 }
 
+#if FULL_SCREEN
 Layout *last_layout;
 void
 fullscreen(const Arg *arg)
@@ -1883,6 +1886,7 @@ fullscreen(const Arg *arg)
 	}
 	togglebar(arg);
 }
+#endif  //FULL_SCREEN
 
 void
 setlayout(const Arg *arg)

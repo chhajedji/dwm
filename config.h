@@ -102,7 +102,10 @@ static Key keys[] = {
 	{ MODKEY,		XK_e,		spawn,		SHCMD("editor.sh") },
 	/* { MODKEY|ShiftMask,	XK_e,		quit,		{0} }, */
 	{ MODKEY|ControlMask,	XK_e,		quit,		{0} },
-	{ MODKEY,		XK_f,		fullscreen,     {0} },
+#if FULL_SCREEN
+        { MODKEY,		XK_f,		fullscreen,     {0} },
+#endif  //FULL_SCREEN
+        { MODKEY,		XK_f,		setlayout,     {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,	XK_f,		spawn,		SHCMD("dmenu_input.sh -t") },
 #if CENTERED_MASTER
 	{ MODKEY,		XK_g,		setlayout,	{.v = &layouts[5]} },
