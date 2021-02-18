@@ -598,7 +598,7 @@ buttonpress(XEvent *e)
 			click = ClkStatusText;
 		else
 #else
-		else if (ev->x > selmon->ww - TEXTW(stext) - getsystraywidth() + lrpad) {
+		else if (ev->x > (x = selmon->ww - TEXTW(stext) - getsystraywidth() + lrpad)) {
 			click = ClkStatusText;
 
 			char *text = rawstext;
