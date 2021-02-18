@@ -87,7 +87,14 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+
+#if STATUSCMD
+/* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
+static char *statuscmds[] = { "notify-send 1.$BUTTON", "notify-send 2.$BUTTON", "notify-send 3.$BUTTON", "notify-send 4.$BUTTON", "notify-send 5.$BUTTON", "notify-send 6.$BUTTON", "notify-send 7.$BUTTON", "notify-send 8.$BUTTON" };
+static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
+#else
+static const char *termcmd[]  = { "konsole", NULL };
+#endif
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -238,7 +245,13 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+#if STATUSCMD
+	{ ClkStatusText,        0,              Button1,        spawn,          {.v = statuscmd } },
+	{ ClkStatusText,        0,              Button2,        spawn,          {.v = statuscmd } },
+	{ ClkStatusText,        0,              Button3,        spawn,          {.v = statuscmd } },
+#else
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+#endif
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

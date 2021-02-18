@@ -193,6 +193,9 @@ static void clientmessage(XEvent *e);
 static void configure(Client *c);
 static void configurenotify(XEvent *e);
 static void configurerequest(XEvent *e);
+#if STATUSCMD
+static void copyvalidchars(char *text, char *rawtext);
+#endif
 static Monitor *createmon(void);
 static void destroynotify(XEvent *e);
 static void detach(Client *c);
@@ -303,6 +306,11 @@ static void centeredfloatingmaster(Monitor *m);
 static Systray *systray =  NULL;
 static const char broken[] = "broken";
 static char stext[256];
+#if STATUSCMD
+static char rawstext[256];
+static int statuscmdn;
+static char lastbutton[] = "-";
+#endif
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
 static int bh, blw = 0;      /* bar geometry */
@@ -559,6 +567,9 @@ buttonpress(XEvent *e)
 	Client *c;
 	Monitor *m;
 	XButtonPressedEvent *ev = &e->xbutton;
+#if STATUSCMD
+	*lastbutton = '0' + ev->button;
+#endif
 
 	click = ClkRootWin;
 	/* focus monitor if necessary */
@@ -582,9 +593,32 @@ buttonpress(XEvent *e)
 			arg.ui = 1 << i;
 		} else if (ev->x < x + blw)
 			click = ClkLtSymbol;
+#if !STATUSCMD
 		else if (ev->x > selmon->ww - TEXTW(stext) - getsystraywidth())
 			click = ClkStatusText;
 		else
+#else
+		else if (ev->x > selmon->ww - TEXTW(stext) - getsystraywidth() + lrpad) {
+			click = ClkStatusText;
+
+			char *text = rawstext;
+			int i = -1;
+			char ch;
+			statuscmdn = 0;
+			while (text[++i]) {
+				if ((unsigned char)text[i] < ' ') {
+					ch = text[i];
+					text[i] = '\0';
+					x += TEXTW(text) - lrpad;
+					text[i] = ch;
+					text += i+1;
+					i = -1;
+					if (x >= ev->x) break;
+					if (ch <= LENGTH(statuscmds)) statuscmdn = ch - 1;
+				}
+			}
+		} else
+#endif
 			click = ClkWinTitle;
 	} else if ((c = wintoclient(ev->window))) {
 		focus(c);
@@ -822,6 +856,21 @@ configurerequest(XEvent *e)
 	}
 	XSync(dpy, False);
 }
+
+#if STATUSCMD
+void
+copyvalidchars(char *text, char *rawtext)
+{
+	int i = -1, j = 0;
+
+	while(rawtext[++i]) {
+		if ((unsigned char)rawtext[i] >= ' ') {
+			text[j++] = rawtext[i];
+		}
+	}
+	text[j] = '\0';
+}
+#endif
 
 Monitor *
 createmon(void)
@@ -2061,6 +2110,12 @@ spawn(const Arg *arg)
 {
 	if (arg->v == dmenucmd)
 		dmenumon[0] = '0' + selmon->num;
+#if STATUSCMD
+	else if (arg->v == statuscmd) {
+		statuscmd[2] = statuscmds[statuscmdn];
+		setenv("BUTTON", lastbutton, 1);
+	}
+#endif
 	if (fork() == 0) {
 		if (dpy)
 			close(ConnectionNumber(dpy));
@@ -2516,8 +2571,15 @@ updatesizehints(Client *c)
 void
 updatestatus(void)
 {
+#if STATUSCMD
+	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext)))
+		strcpy(stext, "dwm-"VERSION);
+	else
+		copyvalidchars(stext, rawstext);
+#else
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
+#endif
 	drawbar(selmon);
 	updatesystray();
 }

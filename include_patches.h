@@ -7,3 +7,4 @@
 #define ATTACH_ASIDE            (1)
 #define STATUSCOLOR             (0)
 #define FULL_SCREEN             (0)
+#define STATUSCMD               (1)
