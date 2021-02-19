@@ -49,8 +49,8 @@ static const Rule rules[] = {
 	{ "yakuake",  NULL,       NULL,       0,            1,           -1 },
 	{ "Microsoft Teams - Preview",
 		      NULL,       NULL,       0,            1,           -1 },
-	{ "Steam",     NULL,       NULL,       0,            1,           -1 },
-	/*	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 }, */
+	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
+	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -90,7 +90,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 
 #if STATUSCMD
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
-static char *statuscmds[] = { "notify-send 1.$BUTTON", "notify-send 2.$BUTTON", "notify-send 3.$BUTTON", "notify-send 4.$BUTTON", "notify-send 5.$BUTTON", "notify-send 6.$BUTTON", "notify-send 7.$BUTTON", "notify-send 8.$BUTTON" };
+static char *statuscmds[] = { "clickbar.sh -n", /* Bandwidth */
+                              "clickbar.sh -v", /* Volume change */
+                              "clickbar.sh",    /* Battery */
+                              "clickbar.sh -s", /* System usage. */
+                              "clickbar.sh -d", /* Date time */
+                              "clickbar.sh",    /* Caps Lock, Num lock Indicator */
+                            };
 static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 #else
 static const char *termcmd[]  = { "konsole", NULL };
