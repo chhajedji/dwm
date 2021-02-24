@@ -104,8 +104,8 @@ static const char *termcmd[]  = { "konsole", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,		XK_a,		spawn,		SHCMD("dmenu_input.sh -g") },
-	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("new_wall.sh") },
+	{ MODKEY,		XK_a,		spawn,		SHCMD("new_wall.sh") },
+	{ MODKEY|ShiftMask,	XK_a,		spawn,		SHCMD("disp_config.sh") },
 	{ MODKEY,		XK_b,		setlayout,	{.v = &layouts[3]} },
 	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
 	{ MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
@@ -148,7 +148,7 @@ static Key keys[] = {
 	/* { MODKEY,		XK_r,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_r,		quit,		{1} }, */
 	{ MODKEY|ControlMask,	XK_r,		quit,		{1} },
-	/* { MODKEY,		XK_s,		,		{} */
+	{ MODKEY,		XK_s,		spawn,		SHCMD("dmenu_input.sh -g") },
 	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
 	/* { MODKEY|ShiftMask,	XK_t,		,		{} }, */
