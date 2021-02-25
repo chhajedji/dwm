@@ -80,6 +80,7 @@ After modified activetagindicatorbar:
 - [attachaside](https://dwm.suckless.org/patches/attachaside/) - Make new clients get attached and focused in the stacking area instead of always becoming the new master.
 - [statuscolors](https://dwm.suckless.org/patches/statuscolors/) - Add colors to status bar. This patch is currently inactive as it adds some unknown gaps when used with along systray patch. [Here is a reddit discussion regarding same issue](https://www.reddit.com/r/unixporn/comments/ahoudy/need_help_status_color_patch_on_dwm_a_strange_gap/). Really useful patch if it's working properly.
 - [statuscmd](https://dwm.suckless.org/patches/statuscmd/) - This patch adds the ability to execute shell commands based on the mouse button and position when clicking the status bar. This patch has been slightly modified as per [suggestion](https://github.com/chhajedji/dwm/commit/10353926c247c68805499e8403815f2efad4bb6e#r47272109) from [@bakkeby](https://github.com/bakkeby). When applied with `systray` patch, a variable needs to be updated to get correct clicked location.
+- [pywal](https://github.com/dylanaraps/pywal) - Set colors according to your wallpaper. This patch is useful when you have a single constant wallpaper. When wallpaper changes frequently, dwm will have to be recompiled to incorporate new colors. See [this](https://github.com/dylanaraps/pywal/wiki/Customization#dwm) guide for setup.
 ---
 Scripts used in `config.h` can be found [here](https://github.com/chinmaychhajed/scripts/).
 

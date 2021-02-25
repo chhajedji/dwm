@@ -26,6 +26,9 @@ static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const char col_green[]       = "#00ff00";
 
+#if PYWAL
+#include "/home/chinmay/.cache/wal/colors-wal-dwm.h"
+#else
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -34,6 +37,7 @@ static const char *colors[][3]      = {
 	[SchemeUrgent]={ col_white, col_red,    col_red },
 	[4]= { col_black, col_green,    col_gray2 },
 };
+#endif
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
