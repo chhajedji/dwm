@@ -55,6 +55,7 @@ static const Rule rules[] = {
 		      NULL,       NULL,       0,            1,           -1 },
 	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
 	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
+	{ "okular",  NULL,       NULL,       1<<2 /* 3rd*/, 0,           -1 },
 };
 
 /* layout(s) */
