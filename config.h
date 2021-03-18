@@ -39,6 +39,23 @@ static const char *colors[][3]      = {
 };
 #endif
 
+#if SCRATCHPADS
+typedef struct {
+       const char *name;
+       const void *cmd;
+} Sp;
+const char *spcmd1[] = { "ibus-ui-emojier-plasma" };		/* Plasma emoji picker */
+/* const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL }; */
+/* const char *spcmd3[] = {"keepassxc", NULL }; */
+static Sp scratchpads[] = {
+       /* name          cmd  */
+       {"spterm",      spcmd1},
+       /* {"spranger",    spcmd2}, */
+       /* {"keepassxc",   spcmd3}, */
+};
+#endif
+
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
@@ -55,7 +72,13 @@ static const Rule rules[] = {
 		      NULL,       NULL,       0,            1,           -1 },
 	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
 	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
-	{ "okular",  NULL,       NULL,       1<<2 /* 3rd*/, 0,           -1 },
+	{ "okular",   NULL,       NULL,       1<<2 /* 3rd*/,0,           -1 },
+#if SCRATCHPADS
+	{ NULL,      "ibus-ui-emojier-plasma",
+                                  NULL,       SPTAG(0),     1,           -1 },
+#endif
+       /* { NULL,           "spfm",               NULL,           SPTAG(1),               1,                       -1 }, */
+       /* { NULL,           "keepassxc",  NULL,           SPTAG(2),               0,                       -1 }, */
 };
 
 /* layout(s) */
@@ -200,7 +223,11 @@ static Key keys[] = {
 	{ MODKEY,		XK_period,	focusmon,	{.i = +1 } },
 	{ MODKEY|ShiftMask,	XK_period,	tagmon,		{.i = +1 } },
 	{ MODKEY|ControlMask,	XK_period,	tagswapmon,	{.i = -1 } },
+#if SCRATCHPADS
+	{ MODKEY,		XK_semicolon,	togglescratch,	{.ui = 0 } },
+#else
 	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("ibus-ui-emojier-plasma") },
+#endif
 	/* { MODKEY|ShiftMask,	XK_semicolon,	spawn,		SHCMD("pgrep plasma && ibus-ui-emojier-plasma") }, */
 	{ MODKEY,		XK_grave,	spawn,		SHCMD("focus_window.sh") },
 	/* { MODKEY|ShiftMask,	XK_grave,	spawn,		SHCMD("notification_toggle.sh") }, */
