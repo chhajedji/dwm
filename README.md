@@ -7,6 +7,46 @@ dwm - dynamic window manager
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
+## ** Easy and better build process for suckless utilities. **
+------------
+Most suckless utilities like `st`, `dmenu`, `dwm` etc can be build with `make install` and hence I use easy way to install and save the configuration neatly. If you use any suckless utility, this method can come handy to you as well. 😃
+
+##### The function:
+```sh
+bsa() {
+    [ $1 ] && cd $HOME/pnl/github/$1
+    sudo make clean install >/dev/null &&
+        echo "$1 build successful." &&
+        echo "Last built on commit ID $(git log |head -n1 | cut -f2 -d ' ') with changes:" > .build &&
+        git diff >> .build &&
+        git diff --cached >> .build
+}
+```
+
+- All my suckless utilities like `dwm`, `st` are kept inside `~/pnl/github/` directory. So if I give any argument to `bsa`, then it will `cd` into that directory and then build it. If no argument is given, then function assumes that you are in one of the suckless directories and want to build current utility.
+- If the current directory is a `git` directory (which it should be :P ), then some details as described further, are stored in a `.build` file whenever build is success. Maybe you want to add `.build` in your `.gitignore`.
+- Details like:
+  - latest commit ID on which you used `bsa` and compiled successfully.
+  - diff if you had some staged/unstaged changes in your tree at time of last successful build.
+are stored in .build file.
+
+This comes handy when you need to track why your current build is failing by looking at the last successful build status stored in `.build` file.
+
+##### The usage:
+```sh
+bsa [OPTIONAL: Utility name]
+
+~/pnl/github/dwm$ bsa dwm
+dwm build successful.
+~/pnl/github/dwm$ bsa st
+4 entries written to /etc/terminfo
+st build successful.
+~/pnl/github/st$ cd ~/pnl/github/dwm
+~/pnl/github/dwm$ bsa
+ build successful.
+```
+
+
 Requirements
 ------------
 In order to build dwm you need the Xlib header files.
