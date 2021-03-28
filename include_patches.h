@@ -9,3 +9,5 @@
 #define STATUSCMD               (1)
 #define PYWAL                   (0)
 #define SCRATCHPADS             (1)
+#define WINDOWINDICATION        (0) /* Not any official patch. My changes to hide indication on tags having some window. */
+#define ACTIVEBARINDICATION     (0) /* If both ACTIVEBARINDICATION and WINDOWINDICATION are set, former takes priority over latter. */

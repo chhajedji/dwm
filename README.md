@@ -68,8 +68,8 @@ The file `include_patches.h` contains macros which enable/disable some of the pa
 - [centeredmaster with ru_gaps](https://dwm.suckless.org/patches/ru_gaps/) - Keep master in center and slaves at sides. This is with gaps present between windows. Here is  [original](https://dwm.suckless.org/patches/centeredmaster/) without gaps.
 - [fullscreen](https://dwm.suckless.org/patches/fullscreen/) - Applies the monocle layout with the focused client on top and hides the bar. When pressed again, shows the bar and restores the layout that was active before going fullscreen.
 - [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/) - Hide vacant tags :)
-- [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows. This is not so useful when hide-vacant-tags is used and hence **inacitve** in this build. To activate this, uncomment the code in [dwm.c](./dwm.c) under comment `[ACTIVEBARINDICATION]`.
-> _Modified patch activetagindicatorbar. Changed bar length and position from top to bottom._
+- [activetagindicatorbar](https://dwm.suckless.org/patches/activetagindicatorbar/) - Show rectangular boxes instead of squares on tags with some windows. This is not so useful when hide-vacant-tags is used and hence currently **inacitve**.
+> _Modified patch activetagindicatorbar. Changed bar length and position from top to bottom. Indication is slimmer now 😎._
 
 After modified activetagindicatorbar:
 
