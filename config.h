@@ -44,12 +44,14 @@ typedef struct {
        const char *name;
        const void *cmd;
 } Sp;
-const char *spcmd1[] = { "ibus-ui-emojier-plasma" };		/* Plasma emoji picker */
+const char *spcmd1[] = { "ibus-ui-emojier-plasma" };	/* Plasma emoji picker */
+const char *spcmd2[] = { "discord" };			/* Discord */
 /* const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL }; */
 /* const char *spcmd3[] = {"keepassxc", NULL }; */
 static Sp scratchpads[] = {
        /* name          cmd  */
-       {"spterm",      spcmd1},
+       {"spterm",       spcmd1},
+       {"spdiscord",    spcmd2},
        /* {"spranger",    spcmd2}, */
        /* {"keepassxc",   spcmd3}, */
 };
@@ -76,6 +78,7 @@ static const Rule rules[] = {
 #if SCRATCHPADS
 	{ NULL,      "ibus-ui-emojier-plasma",
                                   NULL,       SPTAG(0),     1,           -1 },
+	{ NULL,      "discord",   NULL,       SPTAG(1),     1,           -1 },
 #endif
        /* { NULL,           "spfm",               NULL,           SPTAG(1),               1,                       -1 }, */
        /* { NULL,           "keepassxc",  NULL,           SPTAG(2),               0,                       -1 }, */
@@ -195,6 +198,10 @@ static Key keys[] = {
 
         /* Non-alphabets. */
 
+#if SCRATCHPADS
+	{ MODKEY,		XK_minus,	togglescratch,	{.ui = 1 } },
+#endif
+        /* { MODKEY|ShiftMask,	XK_minus,	focusstack,	{.i = +1 } }, */
 	{ MODKEY,		XK_Down,	focusstack,	{.i = +1 } },
 	/* { MODKEY|ShiftMask,	XK_Down,	focusstack,	{.i = +1 } }, */
 	{ MODKEY,		XK_Up,		focusstack,	{.i = -1 } },
