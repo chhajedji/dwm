@@ -71,10 +71,11 @@ static const Rule rules[] = {
 	/* { "dolphin",  NULL,       NULL,       0,            1,           -1 }, */
 	{ "yakuake",  NULL,       NULL,       0,            1,           -1 },
 	{ "Microsoft Teams - Preview",
-		      NULL,       NULL,       0,            1,           -1 },
+		      NULL,       NULL,       1<<5 /* 6th*/,1,           -1 },
 	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
 	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
 	{ "okular",   NULL,       NULL,       1<<2 /* 3rd*/,0,           -1 },
+	{ "Gsimplecal",NULL,      NULL,       0,            1,           -1 },
 #if SCRATCHPADS
 	{ NULL,      "ibus-ui-emojier-plasma",
                                   NULL,       SPTAG(0),     1,           -1 },
@@ -193,8 +194,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } }, */
 	/* { MODKEY,		XK_y,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_y,		,		{} }, */
-	{ MODKEY,		XK_z,		setgaps,	{.i = +1 } },
-	{ MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -1 } },
+	{ MODKEY,		XK_z,		setgaps,	{.i = +7 } },
+	{ MODKEY|ShiftMask,	XK_z,		setgaps,	{.i = -7 } },
 
         /* Non-alphabets. */
 
