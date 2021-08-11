@@ -73,6 +73,8 @@ static const Rule rules[] = {
 	{ "Microsoft Teams - Preview",
 		      NULL,       NULL,       1<<5 /* 6th*/,1,           -1 },
 	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
+	{ "realvnc-vncviewer",
+		      NULL,       NULL,       1<<7 /* 8th*/,0,           -1 },
 	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
 	{ "okular",   NULL,       NULL,       1<<2 /* 3rd*/,0,           -1 },
 	{ "Gsimplecal",NULL,      NULL,       0,            1,           -1 },
@@ -177,8 +179,8 @@ static Key keys[] = {
 	{ MODKEY,		XK_q,		killclient,	{0} },
 	/* { MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") }, */
 	{ MODKEY|ControlMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") },
-	/* { MODKEY,		XK_r,		,		{} */
-	/* { MODKEY|ShiftMask,	XK_r,		quit,		{1} }, */
+	{ MODKEY,		XK_r,		spawn,		SHCMD("remindme.sh -r") },
+	{ MODKEY|ShiftMask,	XK_r,		spawn,		SHCMD("remindme.sh -d")  },
 	{ MODKEY|ControlMask,	XK_r,		quit,		{1} },
 	{ MODKEY,		XK_s,		spawn,		SHCMD("dmenu_input.sh -g") },
 	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
@@ -242,8 +244,12 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,	XK_grave,	spawn,		SHCMD("notification_toggle.sh") },
 	{ MODKEY,		XK_Print,	spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
 	{ MODKEY|ShiftMask,	XK_Print,	spawn,		SHCMD("screenshot.sh") },       /* Fullscreen */
-	{ MODKEY,		XK_F2,		spawn,		SHCMD("firefox") },
-	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("firefox -private-window") },
+	{ MODKEY,		XK_F2,		spawn,		SHCMD("brave-browser-stable") },
+	{ MODKEY|ShiftMask,	XK_F2,		spawn,		SHCMD("brave-browser-stable --incognito") },
+	{ MODKEY,		XK_F1,		spawn,		SHCMD("firefox") },
+	{ MODKEY|ShiftMask,	XK_F1,		spawn,		SHCMD("firefox -private-window") },
+	{ MODKEY,		XK_F4,		spawn,		SHCMD("firefox") },
+	{ MODKEY|ShiftMask,	XK_F4,		spawn,		SHCMD("firefox -private-window") },
 
 	/* Control Masks. */
 
