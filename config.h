@@ -193,7 +193,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_w,		spawn,		SHCMD("dmenu_input.sh -w") },
 	/* { MODKEY|ShiftMask,	XK_w,		,		{} }, */
 	{ MODKEY,		XK_x,		spawn,		SHCMD("dmenu_input.sh -o") },
-	/* { MODKEY|ShiftMask,	XK_x,		setgaps,	{.i = 0  } }, */
+	{ MODKEY|ShiftMask,	XK_x,		spawn,		SHCMD("dmenu_input.sh -a") },
 	/* { MODKEY,		XK_y,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_y,		,		{} }, */
 	{ MODKEY,		XK_z,		setgaps,	{.i = +7 } },
