@@ -120,7 +120,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-p", "Run command:", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 
 #if STATUSCMD
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
@@ -174,8 +174,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
 	{ MODKEY,		XK_o,		spawn,		SHCMD("dmenu_input.sh -r") },
 	{ MODKEY|ShiftMask,	XK_o,		spawn,		SHCMD("dmenu_input.sh -f") },
-	{ MODKEY,       	XK_p,		spawn,		{.v = dmenucmd } },
-	/* { MODKEY|ShiftMask,	XK_p,		,		{} }, */
+	{ MODKEY,       	XK_p,		spawn,		SHCMD("dmenu_input.sh -l") },
+	{ MODKEY|ShiftMask,	XK_p,		spawn,		{.v = dmenucmd } },
 	{ MODKEY,		XK_q,		killclient,	{0} },
 	/* { MODKEY|ShiftMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") }, */
 	{ MODKEY|ControlMask,	XK_q,		spawn,		SHCMD("blur_lock.sh") },
