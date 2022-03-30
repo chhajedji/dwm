@@ -73,6 +73,7 @@ static const Rule rules[] = {
 	{ "Microsoft Teams - Preview",
 		      NULL,       NULL,       1<<5 /* 6th*/,1,           -1 },
 	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
+	{ "zoom",     NULL,       NULL,       1<<5 /* 6th*/,0,           -1 },
 	{ "realvnc-vncviewer",
 		      NULL,       NULL,       1<<7 /* 8th*/,0,           -1 },
 	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
@@ -128,6 +129,7 @@ static char *statuscmds[] = { "clickbar.sh -n", /* Bandwidth */
                               "clickbar.sh -v", /* Volume change */
                               "clickbar.sh",    /* Battery */
                               "clickbar.sh -s", /* System usage. */
+			      "clickbar.sh",	/* Weather */
                               "clickbar.sh -d", /* Date time */
                               "clickbar.sh",    /* Caps Lock, Num lock Indicator */
                             };
@@ -170,7 +172,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_l,		incnmaster,	{.i = -1 } },
 	/* { MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} }, */
 	{ MODKEY|ShiftMask,	XK_m,		spawn,		SHCMD("dmenu_input.sh -m") },
-	/* { MODKEY,		XK_n,		,		{} */
+	{ MODKEY,		XK_n,		spawn,  	SHCMD("dmenu_input.sh -b") },
 	{ MODKEY|ShiftMask,	XK_n,		spawn,  	SHCMD("dmenu_input.sh -d") },
 	{ MODKEY,		XK_o,		spawn,		SHCMD("dmenu_input.sh -r") },
 	{ MODKEY|ShiftMask,	XK_o,		spawn,		SHCMD("dmenu_input.sh -f") },
