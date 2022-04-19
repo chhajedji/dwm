@@ -167,7 +167,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
 	/* { MODKEY|ShiftMask,	XK_j,		,		{} }, */
 	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
-	/* { MODKEY|ShiftMask,	XK_k,		,		{} }, */
+	{ MODKEY|ShiftMask,	XK_k,		spawn,		SHCMD("screenkey_toggle.sh") },
 	{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
 	{ MODKEY|ShiftMask,	XK_l,		incnmaster,	{.i = -1 } },
 	/* { MODKEY,		XK_m,		setlayout,	{.v = &layouts[2]} }, */
@@ -185,7 +185,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,	XK_r,		spawn,		SHCMD("remindme.sh -d")  },
 	{ MODKEY|ControlMask,	XK_r,		quit,		{1} },
 	{ MODKEY,		XK_s,		spawn,		SHCMD("dmenu_input.sh -g") },
-	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenkey_toggle.sh") },
+	{ MODKEY|ShiftMask,	XK_s,		spawn,		SHCMD("screenshot.sh -s") },    /* Area select. */
 	{ MODKEY,		XK_t,		setlayout,	{.v = &layouts[0]} },
 	/* { MODKEY|ShiftMask,	XK_t,		,		{} }, */
 	/* { MODKEY,		XK_u,		,		{} */
