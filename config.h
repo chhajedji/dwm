@@ -146,8 +146,9 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_b,		,		{} }, */
 	{ MODKEY,		XK_c,		spawn,		SHCMD("startpy3.sh") },
 	/* { MODKEY|ShiftMask,	XK_c,		,		{} }, */
-	/* { MODKEY,		XK_d,		incnmaster,	{.i = -1 } }, */
-	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin") },
+	{ MODKEY,		XK_d,		spawn,		SHCMD("dolphin") },
+	/* Open Dolphin in the last opened directory in the terminal. This file is written by the samedir.sh script. */
+	{ MODKEY|ShiftMask,	XK_d,		spawn,		SHCMD("dolphin \"$(cat /tmp/cwd)\"") },
 	{ MODKEY,		XK_e,		spawn,		SHCMD("editor.sh") },
 	/* { MODKEY|ShiftMask,	XK_e,		quit,		{0} }, */
 	{ MODKEY|ControlMask,	XK_e,		quit,		{0} },
