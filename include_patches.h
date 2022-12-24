@@ -2,7 +2,7 @@
 /* This file includes macros for some of the patches. To disable a
  * patch, just set value to 0. */
 
-#define CENTERED_MASTER         (0)
+#define CENTERED_MASTER         (1)
 #define HIDE_VACANT_TAGS        (0)
 #define ATTACH_ASIDE            (1)
 #define STATUSCOLOR             (0)
