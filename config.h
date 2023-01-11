@@ -191,8 +191,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,	XK_t,		,		{} }, */
 	/* { MODKEY,		XK_u,		,		{} */
 	/* { MODKEY|ShiftMask,	XK_u,		,		{} }, */
-	/* { MODKEY,		XK_v,		,		{} */
-	/* { MODKEY|ShiftMask,	XK_v,		,		{} }, */
+	{ MODKEY,		XK_v,		spawn,		SHCMD("dmenu_input.sh -c") },
+	{ MODKEY|ShiftMask,	XK_v,		spawn,		SHCMD("dmenu_input.sh -p") },
 	{ MODKEY,		XK_w,		spawn,		SHCMD("dmenu_input.sh -w") },
 	/* { MODKEY|ShiftMask,	XK_w,		,		{} }, */
 	{ MODKEY,		XK_x,		spawn,		SHCMD("dmenu_input.sh -o") },
