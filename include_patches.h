@@ -4,7 +4,7 @@
 
 #define CENTERED_MASTER         (1)
 #define HIDE_VACANT_TAGS        (0)
-#define ATTACH_ASIDE            (1)
+#define ATTACH_ASIDE            (0)
 #define STATUSCOLOR             (0)
 #define FULL_SCREEN             (0)
 #define STATUSCMD               (1)
