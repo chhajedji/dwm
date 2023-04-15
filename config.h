@@ -79,6 +79,7 @@ static const Rule rules[] = {
 	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
 	{ "okular",   NULL,       NULL,       1<<2 /* 3rd*/,0,           -1 },
 	{ "Gsimplecal",NULL,      NULL,       0,            1,           -1 },
+	{ "thunderbird",NULL,	  NULL,       1<<5 /* 6th*/,0,           -1 },
 #if SCRATCHPADS
 	{ NULL,      "ibus-ui-emojier-plasma",
                                   NULL,       SPTAG(0),     1,           -1 },
