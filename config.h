@@ -68,28 +68,28 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	/* { "dolphin",  NULL,       NULL,       0,            1,           -1 }, */
-	{ "yakuake",  NULL,       NULL,       0,            1,           -1 },
+	/* class	instance    title	tags mask	isfloating  monitor */
+	{ "Gimp",	NULL,	    NULL,	0,		1,	    -1 },
+	{ "yakuake",	NULL,	    NULL,	0,		1,	    -1 },
+	{ "Steam",	NULL,	    NULL,	0,		1,	    -1 },
+	{ "zoom", 	NULL,	    NULL,	1<<5 /* 6th*/,	0,	    -1 },
+	{ "okular",	NULL,	    NULL,       1<<2 /* 3rd*/,	0,	    -1 },
+	{ "Gsimplecal",	NULL,	    NULL,	0,		1,	    -1 },
+	{ "thunderbird",NULL,	    NULL,	1<<5 /* 6th*/,	0,	    -1 },
+	{ "Gnome-calendar",
+			NULL,	    NULL,	0,		1,	    -1 },
 	{ "Microsoft Teams - Preview",
-		      NULL,       NULL,       1<<5 /* 6th*/,1,           -1 },
-	{ "Steam",    NULL,       NULL,       0,            1,           -1 },
-	{ "zoom",     NULL,       NULL,       1<<5 /* 6th*/,0,           -1 },
-	{ "realvnc-vncviewer",
-		      NULL,       NULL,       1<<7 /* 8th*/,0,           -1 },
-	{ "Gnome-calendar",NULL,  NULL,       0,            1,           -1 },
-	{ "okular",   NULL,       NULL,       1<<2 /* 3rd*/,0,           -1 },
-	{ "Gsimplecal",NULL,      NULL,       0,            1,           -1 },
-	{ "thunderbird",NULL,	  NULL,       1<<5 /* 6th*/,0,           -1 },
+			NULL,	    NULL,	1<<5 /* 6th*/,	1,	    -1 },
+	/* { "dolphin",	NULL,	    NULL,	0,		1,	    -1 }, */
+	/* { NULL,		"spfm",	    NULL,	SPTAG(1),	1,	    -1 }, */
+	/* { NULL,		"keepassxc",NULL,	SPTAG(2),	0,	    -1 }, */
+
 #if SCRATCHPADS
-	{ NULL,      "ibus-ui-emojier-plasma",
-	{ "Signal",	"signal",	  NULL,       SPTAG(2),	    1,           -1 },
-                                  NULL,       SPTAG(0),     1,           -1 },
-	{ NULL,      "discord",   NULL,       SPTAG(1),     1,           -1 },
+	{ "Signal",	"signal",	  NULL,	SPTAG(2),	1,	    -1 },
+	{ NULL,		"ibus-ui-emojier-plasma",
+				    NULL,	SPTAG(0),	1,	    -1 },
+	{ NULL,		"discord",  NULL,	SPTAG(1),	1,	    -1 },
 #endif
-       /* { NULL,           "spfm",               NULL,           SPTAG(1),               1,                       -1 }, */
-       /* { NULL,           "keepassxc",  NULL,           SPTAG(2),               0,                       -1 }, */
 };
 
 /* layout(s) */
