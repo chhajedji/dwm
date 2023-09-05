@@ -46,12 +46,14 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = { "ibus-ui-emojier-plasma" };	/* Plasma emoji picker */
 const char *spcmd2[] = { "discord" };			/* Discord */
+const char *spcmd3[] = { "signal-desktop" };		/* Signal */
 /* const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL }; */
 /* const char *spcmd3[] = {"keepassxc", NULL }; */
 static Sp scratchpads[] = {
        /* name          cmd  */
        {"spterm",       spcmd1},
        {"spdiscord",    spcmd2},
+       {"signal",    spcmd2},
        /* {"spranger",    spcmd2}, */
        /* {"keepassxc",   spcmd3}, */
 };
@@ -82,6 +84,7 @@ static const Rule rules[] = {
 	{ "thunderbird",NULL,	  NULL,       1<<5 /* 6th*/,0,           -1 },
 #if SCRATCHPADS
 	{ NULL,      "ibus-ui-emojier-plasma",
+	{ "Signal",	"signal",	  NULL,       SPTAG(2),	    1,           -1 },
                                   NULL,       SPTAG(0),     1,           -1 },
 	{ NULL,      "discord",   NULL,       SPTAG(1),     1,           -1 },
 #endif
@@ -209,6 +212,8 @@ static Key keys[] = {
 
 #if SCRATCHPADS
 	{ MODKEY,		XK_minus,	togglescratch,	{.ui = 1 } },
+	{ MODKEY,		XK_equal,	togglescratch,	{.ui = 2 } },
+
 #endif
         /* { MODKEY|ShiftMask,	XK_minus,	focusstack,	{.i = +1 } }, */
 	{ MODKEY,		XK_Down,	focusstack,	{.i = +1 } },
