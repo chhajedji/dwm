@@ -211,7 +211,7 @@ static Key keys[] = {
         /* Non-alphabets. */
 
 #if SCRATCHPADS
-	{ MODKEY,		XK_minus,	togglescratch,	{.ui = 1 } },
+	/* { MODKEY,		XK_minus,	togglescratch,	{.ui = 1 } }, */
 	{ MODKEY,		XK_equal,	togglescratch,	{.ui = 2 } },
 
 #endif
