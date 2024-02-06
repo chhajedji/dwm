@@ -53,7 +53,7 @@ static Sp scratchpads[] = {
        /* name          cmd  */
        {"spterm",       spcmd1},
        {"spdiscord",    spcmd2},
-       {"signal",    spcmd2},
+       {"signal",    spcmd3},
        /* {"spranger",    spcmd2}, */
        /* {"keepassxc",   spcmd3}, */
 };
@@ -88,7 +88,7 @@ static const Rule rules[] = {
 	{ "Signal",	"signal",	  NULL,	SPTAG(2),	1,	    -1 },
 	{ NULL,		"ibus-ui-emojier-plasma",
 				    NULL,	SPTAG(0),	1,	    -1 },
-	{ NULL,		"discord",  NULL,	SPTAG(1),	1,	    -1 },
+	// { NULL,		"discord",  NULL,	SPTAG(1),	1,	    -1 },
 #endif
 };
 
