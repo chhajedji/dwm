@@ -227,7 +227,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_Escape,	togglebar,	{0} },
 	{ MODKEY|ShiftMask,	XK_Escape,	spawn,		SHCMD("wifi_toggle.sh") },
 	{ MODKEY,		XK_Delete,	spawn,		SHCMD("dmenu_input.sh -k") },
-	{ MODKEY|ShiftMask,	XK_Delete,	spawn,		SHCMD("$TERMINAL -e htop") },
+	{ MODKEY|ShiftMask,	XK_Delete,	spawn,		SHCMD("$TERMINAL_LITE -e htop") },
 	{ MODKEY|ControlMask,	XK_Delete,	spawn,		SHCMD("xkill") },
 	{ MODKEY,		XK_Return,	zoom,		{0} },
 	/* { MODKEY|ShiftMask,	XK_Return,	spawn,		SHCMD("samedir.sh") }, */
